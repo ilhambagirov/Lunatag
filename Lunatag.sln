@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luna.API", "Luna.API\Luna.API.csproj", "{EA7AEDD5-A71C-4EAB-9836-92FBBB93EC3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luna.Domain", "Luna.Domain\Luna.Domain.csproj", "{63C3E5BA-F9F8-441C-BCB6-600E3AFA4AAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luna.Application", "Luna.Application\Luna.Application.csproj", "{5934AAC5-844D-43BC-821D-7F282F618EE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luna.Persistence", "Luna.Persistence\Luna.Persistence.csproj", "{17341F6F-5B99-4B3C-932F-7A4501D2E558}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA7AEDD5-A71C-4EAB-9836-92FBBB93EC3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA7AEDD5-A71C-4EAB-9836-92FBBB93EC3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA7AEDD5-A71C-4EAB-9836-92FBBB93EC3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA7AEDD5-A71C-4EAB-9836-92FBBB93EC3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63C3E5BA-F9F8-441C-BCB6-600E3AFA4AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63C3E5BA-F9F8-441C-BCB6-600E3AFA4AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63C3E5BA-F9F8-441C-BCB6-600E3AFA4AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63C3E5BA-F9F8-441C-BCB6-600E3AFA4AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5934AAC5-844D-43BC-821D-7F282F618EE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5934AAC5-844D-43BC-821D-7F282F618EE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5934AAC5-844D-43BC-821D-7F282F618EE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5934AAC5-844D-43BC-821D-7F282F618EE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17341F6F-5B99-4B3C-932F-7A4501D2E558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17341F6F-5B99-4B3C-932F-7A4501D2E558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17341F6F-5B99-4B3C-932F-7A4501D2E558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17341F6F-5B99-4B3C-932F-7A4501D2E558}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DAFC74F1-3569-448A-9910-E9DE2B04073B}
+	EndGlobalSection
+EndGlobal
