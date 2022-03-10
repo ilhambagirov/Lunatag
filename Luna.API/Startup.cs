@@ -74,7 +74,7 @@ namespace Luna.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Luna.API v1"));
             }
-            app.SeedData();
+            app.SeedData().GetAwaiter().GetResult();
             app.UseHttpsRedirection();
 
             app.UseRouting();

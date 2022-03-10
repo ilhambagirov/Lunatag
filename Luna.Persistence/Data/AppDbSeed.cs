@@ -5,12 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
 
 namespace Luna.Persistence.Data
 {
     public static class AppDbSeed
     {
-        static public IApplicationBuilder SeedData(this IApplicationBuilder app)
+        static async public Task<IApplicationBuilder> SeedData(this IApplicationBuilder app)
         {
             using (var scope = app.ApplicationServices.CreateScope())
             {
@@ -18,12 +19,12 @@ namespace Luna.Persistence.Data
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<AppRole>>();
                 if (db.Projects.Any()
-                    && db.Technologys.Any()
-                    && db.ProjectCategories.Any()
-                    && db.Services.Any()
-                    && db.Branches.Any()
-                    && db.Users.Any()
-                    && db.Roles.Any())
+                    || db.Technologys.Any()
+                    || db.ProjectCategories.Any()
+                    || db.Services.Any()
+                    || db.Branches.Any()
+                    || db.Users.Any()
+                    || db.Roles.Any())
                     return app;
 
            
@@ -208,20 +209,23 @@ namespace Luna.Persistence.Data
                 });
                 #endregion 
 
-                db.ProjectCategories.AddRange(pcList);
-                db.Technologys.AddRange(tList);
-                db.Projects.AddRange(pList);
-                db.Branches.AddRange(bList);
-                db.Services.AddRange(sList);
+                await db.ProjectCategories.AddRangeAsync(pcList);
+                await db.SaveChangesAsync();
+                await db.Technologys.AddRangeAsync(tList);
+                await db.Projects.AddRangeAsync(pList);
+                await db.Branches.AddRangeAsync(bList);
+                await db.Services.AddRangeAsync(sList);
+                await db.SaveChangesAsync();
                 foreach (var user in uList)
                 {
-                    userManager.CreateAsync(user, "Pa$$w0rd");
+                    await userManager.CreateAsync(user, "Pa$$w0rd");
+                    await db.SaveChangesAsync();
                 }
                 foreach (var role in rList)
                 {
-                    roleManager.CreateAsync(role);
+                    await roleManager .CreateAsync(role);
+                    await db.SaveChangesAsync();
                 }
-                db.SaveChanges();
             }
             return app;
         }
