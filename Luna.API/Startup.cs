@@ -1,3 +1,7 @@
+using Luna.Application;
+using Luna.Application.Core;
+using Luna.Application.EntitiesCQ.ProjectCategory.Interfaces;
+using Luna.Application.EntitiesCQ.ProjectCategory.Services;
 using Luna.Domain.Entities;
 using Luna.Persistence.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -27,6 +31,7 @@ namespace Luna.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddIdentity<AppUser, AppRole>(opt =>
             {
                 opt.SignIn.RequireConfirmedEmail = true;
@@ -65,6 +70,10 @@ namespace Luna.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Luna.API", Version = "v1" });
             });
+
+            services.AddAutoMapper(typeof(MappingProfiles));
+            //services.AddScoped<IProjectCategoryService, ProjectCategoryService>();
+            services.AddApplication();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
