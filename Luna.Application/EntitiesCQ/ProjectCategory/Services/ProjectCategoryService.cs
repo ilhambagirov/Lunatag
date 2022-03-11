@@ -53,9 +53,18 @@ namespace Luna.Application.EntitiesCQ.ProjectCategory.Services
             return await SaveAsync();
         }
 
-        Task<bool> IProjectCategoryService.Update(UpdateProjectCategoryDto command)
+        public async Task<bool> Update(int id, UpdateProjectCategoryDto command)
         {
-            throw new NotImplementedException();
+            var pc = await _dbContext.ProjectCategories.FindAsync(id);
+
+            if (pc == null)
+                return false;
+
+            pc = _mapper.Map(command, pc);
+            pc.UpdateDate = DateTime.Now;
+
+            _dbContext.ProjectCategories.Update(pc);
+            return await SaveAsync();
         }
         public async Task<bool> Delete(int id)
         {
@@ -66,7 +75,6 @@ namespace Luna.Application.EntitiesCQ.ProjectCategory.Services
 
             pc.DeletedDate = DateTime.Now;
             pc.IsActive = false;
-
             return await SaveAsync();
         }
     }

@@ -14,6 +14,7 @@ namespace Luna.Application.Core
         public MappingProfiles()
         {
             CreateMap<CreateProjectCategoryDto, ProjectCategory>().ReverseMap();
+            CreateMap<UpdateProjectCategoryDto, ProjectCategory>().ReverseMap();
         }
     }
 }

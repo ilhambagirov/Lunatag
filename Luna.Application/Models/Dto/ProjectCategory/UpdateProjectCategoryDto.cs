@@ -8,5 +8,6 @@ namespace Luna.Application.Models.Dto.ProjectCategory
 {
     public class UpdateProjectCategoryDto
     {
+        public string Name { get; set; }
     }
 }

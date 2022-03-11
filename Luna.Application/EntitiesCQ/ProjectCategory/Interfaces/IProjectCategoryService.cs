@@ -10,7 +10,7 @@ namespace Luna.Application.EntitiesCQ.ProjectCategory.Interfaces
         Task<Domain.Entities.ProjectCategory> Get(int id);
 
         Task<bool> Create(CreateProjectCategoryDto command);
-        Task<bool> Update(UpdateProjectCategoryDto command);
+        Task<bool> Update(int id, UpdateProjectCategoryDto command);
         Task<bool> Delete(int id);
         Task<bool> SaveAsync();
     }

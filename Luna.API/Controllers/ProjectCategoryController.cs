@@ -44,11 +44,11 @@ namespace Luna.API.Controllers
             return await _projectCategoryService.Create(createProjectCategoryDto);
         }
 
-        //[HttpPut]
-        //public async Task<IActionResult> Update()
-        //{
-
-        //}
+        [HttpPut("{id}")]
+        public async Task<ActionResult<bool>> Update([FromRoute] int id, [FromQuery] UpdateProjectCategoryDto updateProjectCategoryDto)
+        {
+            return await _projectCategoryService.Update(id, updateProjectCategoryDto);
+        }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<bool>> Delete(int id)
