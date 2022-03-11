@@ -21,8 +21,6 @@ namespace Luna.Application.EntitiesCQ.ProjectCategory.Services
             _mapper = mapper;
         }
 
-       
-
         public async Task<Domain.Entities.ProjectCategory> Get(int id)
         {
             var pc = await _dbContext.ProjectCategories.FirstOrDefaultAsync(x => x.Id == id && x.DeletedDate == null);
@@ -31,18 +29,10 @@ namespace Luna.Application.EntitiesCQ.ProjectCategory.Services
 
             return pc;
         }
-
         public async Task<List<Domain.Entities.ProjectCategory>> GetList()
         {
             return await _dbContext.ProjectCategories.Where(x=>x.DeletedDate == null).ToListAsync();
         }
-
-
-        public  async Task<bool> SaveAsync()
-        {
-            return await _dbContext.SaveChangesAsync() >= 0 ? true : false;
-        }
-
         public async Task<bool> Create(CreateProjectCategoryDto command)
         {
             var pc = _mapper.Map<Domain.Entities.ProjectCategory>(command);
@@ -52,7 +42,6 @@ namespace Luna.Application.EntitiesCQ.ProjectCategory.Services
             await _dbContext.ProjectCategories.AddAsync(pc);
             return await SaveAsync();
         }
-
         public async Task<bool> Update(int id, UpdateProjectCategoryDto command)
         {
             var pc = await _dbContext.ProjectCategories.FindAsync(id);
@@ -76,6 +65,10 @@ namespace Luna.Application.EntitiesCQ.ProjectCategory.Services
             pc.DeletedDate = DateTime.Now;
             pc.IsActive = false;
             return await SaveAsync();
+        }
+        public  async Task<bool> SaveAsync()
+        {
+            return await _dbContext.SaveChangesAsync() >= 0 ? true : false;
         }
     }
 }
